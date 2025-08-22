@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sound Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <!-- Header with title and controls -->
+            <div class="header">
+                <h1 class="title">
+                    <span class="gradient-text">Sound Explorer</span>
+                </h1>
+            </div>
+
+            <!-- Search form -->
+            <div class="search-container">
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        id="soundInput" 
+                        class="search-input size-md"
+                        placeholder="Enter a sound (e.g., piano, waves, birds)"
+                    >
+                    <button id="clearButton" class="clear-btn" style="display: none;">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M18 6L6 18M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <button id="searchButton" class="search-btn">
+                    <span>Find</span>
+                </button>
+            </div>
+
+            <!-- Error message (initially hidden) -->
+            <div id="errorMessage" class="error-message" style="display: none;">
+                <span id="errorText"></span>
+                <button id="retryButton" class="retry-btn">Try Again</button>
+            </div>
+
+            <!-- Recent searches -->
+            <div id="recentSearches" class="recent-searches" style="display: none;">
+                <div class="label">Recent searches:</div>
+                <div id="searchesList" class="searches-list"></div>
+            </div>
+
+            <!-- Audio player (initially hidden) -->
+            <div id="audioPlayer" class="audio-container" style="display: none;">
+                <div class="audio-header">
+                    <div class="audio-info">
+                        <div class="audio-icon">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M8 5.14v14l11-7-11-7z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="audio-label">Now playing</div>
+                            <div id="currentSound" class="audio-title"></div>
+                        </div>
+                    </div>
+                    <button id="replayButton" class="replay-btn">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M17.91 14c-.7 2.6-3.1 4.4-5.91 4.4-3.3 0-6-2.7-6-6s2.7-6 6-6c1.6 0 3.1.7 4.1 1.9L19 11V7h-4l1.9 1.9c-1.3-1.2-3.1-1.9-4.9-1.9-4.4 0-8 3.6-8 8s3.6 8 8 8c3.7 0 6.8-2.5 7.7-6h-2.8z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="audio-player-wrapper">
+                    <audio id="audioElement" controls class="audio-player"></audio>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>Powered by <span class="bold">Freesound API</span></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
